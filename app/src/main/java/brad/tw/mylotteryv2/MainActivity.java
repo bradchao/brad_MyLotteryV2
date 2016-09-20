@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.HashSet;
+
 public class MainActivity extends AppCompatActivity {
     private TextView mesg;
 
@@ -18,8 +20,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createLottery(View v){
-        Log.d("brad", "OK");
-        mesg.setText("Lottery:" + (int)(Math.random()*49+1));
+        HashSet<Integer> set = new HashSet<>();
+        while (set.size()<6){
+            set.add((int)(Math.random()*49+1));
+        }
+        mesg.setText(set.toString());
 
     }
 
